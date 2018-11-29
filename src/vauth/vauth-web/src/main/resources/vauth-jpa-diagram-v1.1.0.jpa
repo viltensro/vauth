@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" pkg="sk.vilten.vauth.web.entity" v="3.5.1" dv="1.1.0" rws="_14891596836242" Pws="_14891596836242" cws="_14891596836242" thm="PMacColorScheme" persistenceUnitName="VAUTH" sm="false" xs="false" id="_14891596836231" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:description>version 1.1.0</jpa:description>
+    <jpa:schema>VAUTH</jpa:schema>
+    <jpa:catalog>VAUTH</jpa:catalog>
+    <jpa:entity lbl-ref="_14891597307693" xre="false" compositePrimaryKeyClass="VAuth_AuthCodePK" abs="false" class="VAuth_AuthCode" v="true" m="false" rootElement="_14891596836231" id="_1489159730643">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="AuthCode" dv="java.util.UUID.randomUUID().toString()" ft="false" id="_14891597651895">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="36"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_14891599261766">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="RedirectUrl" ft="false" id="_14891600747778">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="5000"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_14891597307693">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_AuthCode.findAll">
+            <jpa:query>Select e from VAuth_AuthCode e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_AuthCode.findByAuthCode">
+            <jpa:query>Select v from VAuth_AuthCode v where v.AuthCode=:AuthCode</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_AuthCode.findByCreated">
+            <jpa:query>Select v from VAuth_AuthCode v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_AuthCode.findByValidTo">
+            <jpa:query>Select v from VAuth_AuthCode v where v.ValidTo=:ValidTo</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_AuthCode.findByRedirectUrl">
+            <jpa:query>Select v from VAuth_AuthCode v where v.RedirectUrl=:RedirectUrl</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_148916059137917" xre="false" compositePrimaryKeyClass="VAuth_TokenPK" abs="false" class="VAuth_Token" v="true" m="false" rootElement="_14891596836231" id="_1489160591378">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="Token" dv="java.util.UUID.randomUUID().toString()" ft="false" id="_148916078789049">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="36"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="ExpirationToken" dv="java.util.UUID.randomUUID().toString()" ft="false" id="_148916084880950">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="36"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_148916177908351">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_148916059137917">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_Token.findAll">
+            <jpa:query>Select e from VAuth_Token e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Token.findByToken">
+            <jpa:query>Select v from VAuth_Token v where v.Token=:Token</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Token.findByExpirationToken">
+            <jpa:query>Select v from VAuth_Token v where v.ExpirationToken=:ExpirationToken</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Token.findByCreated">
+            <jpa:query>Select v from VAuth_Token v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_148916188971452" xre="false" compositePrimaryKeyClass="VAuth_UserPK" abs="false" class="VAuth_User" v="true" m="false" rootElement="_14891596836231" id="_1489161889713">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="ExternalId" ft="false" id="_148916191164454">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Boolean" v="true" name="Enabled" dv="false" ft="false" id="_148916191197055">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_148916195340456">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:basic optional="true" attribute-type="String" v="true" name="Password" ft="false" id="_148916195383257">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="32"/>
+            </jpa:basic>
+            <jpa:basic optional="true" attribute-type="Long" v="true" name="LastLogged" dv="System.currentTimeMillis()" id="_1489163968179222">
+                <jpa:bv/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_148916188971452">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_User.findAll">
+            <jpa:query>Select e from VAuth_User e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_User.findByExternalId">
+            <jpa:query>Select v from VAuth_User v where v.ExternalId=:ExternalId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_User.findByEnabled">
+            <jpa:query>Select v from VAuth_User v where v.Enabled=:Enabled</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_User.findByCreated">
+            <jpa:query>Select v from VAuth_User v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_User.findByPassword">
+            <jpa:query>Select v from VAuth_User v where v.Password=:Password</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_User.findByLastLogged">
+            <jpa:query>Select v from VAuth_User v where v.LastLogged=:LastLogged</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_User.findValidByExternalId">
+            <jpa:query>Select v from VAuth_User v where v.ExternalId=:ExternalId and v.Enabled=true</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_1489162511051181" xre="false" compositePrimaryKeyClass="VAuth_GroupPK" abs="false" class="VAuth_Group" v="true" m="false" rootElement="_14891596836231" id="_1489162511050">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="ExternalId" ft="false" id="_1489162535923183">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="50"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_1489162598555185">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_1489162511051181">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_Group.findAll">
+            <jpa:query>Select e from VAuth_Group e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Group.findByExternalId">
+            <jpa:query>Select v from VAuth_Group v where v.ExternalId=:ExternalId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Group.findByEnabled">
+            <jpa:query>Select v from VAuth_Group v where v.Enabled=:Enabled</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Group.findByCreated">
+            <jpa:query>Select v from VAuth_Group v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Group.findByAttribute2">
+            <jpa:query>Select v from VAuth_Group v where v.attribute2=:attribute2</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_1489162784813188" xre="false" compositePrimaryKeyClass="VAuth_RolePK" abs="false" class="VAuth_Role" v="true" m="false" rootElement="_14891596836231" id="_1489162784812">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:snp loc="IMPORT" e="true">import javax.xml.bind.annotation.XmlRootElement;</jpa:snp>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_1489162801642190">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="ExternalId" ft="false" id="_1489162910577193">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="50"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_1489162784813188">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_Role.findAll">
+            <jpa:query>Select e from VAuth_Role e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Role.findByCreated">
+            <jpa:query>Select v from VAuth_Role v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Role.findByExternalId">
+            <jpa:query>Select v from VAuth_Role v where v.ExternalId=:ExternalId</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_1489162975220194" xre="false" compositePrimaryKeyClass="VAuth_ValuePK" abs="false" class="VAuth_Value" v="true" m="false" rootElement="_14891596836231" id="_1489162975217">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="Value" ft="true" id="_1489162994672196">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="5000"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_1489162995223197">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_1489162975220194">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_Value.findAll">
+            <jpa:query>Select e from VAuth_Value e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Value.findByValue">
+            <jpa:query>Select v from VAuth_Value v where v.Value=:Value</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Value.findByCreated">
+            <jpa:query>Select v from VAuth_Value v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_1489163090569199" xre="false" compositePrimaryKeyClass="VAuth_PropertyPK" abs="false" class="VAuth_Property" v="true" m="false" rootElement="_14891596836231" id="_1489163090566">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="ExternalId" ft="false" id="_1489163108298201">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="50"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_1489163110919202">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="PropertyGroup" id="_1489163113270203">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="32"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="DefaultValue" ft="true" id="_14895728350921867">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="5000"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_1489163090569199">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_Property.findAll">
+            <jpa:query>Select e from VAuth_Property e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Property.findByExternalId">
+            <jpa:query>Select v from VAuth_Property v where v.ExternalId=:ExternalId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Property.findByCreated">
+            <jpa:query>Select v from VAuth_Property v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Property.findByPropertyGroup">
+            <jpa:query>Select v from VAuth_Property v where v.PropertyGroup=:PropertyGroup</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Property.findByAttribute3">
+            <jpa:query>Select v from VAuth_Property v where v.attribute3=:attribute3</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Property.findByDefaultValue">
+            <jpa:query>Select v from VAuth_Property v where v.DefaultValue=:DefaultValue</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_1489163291911208" xre="false" compositePrimaryKeyClass="VAuth_ApplicationPK" abs="false" class="VAuth_Application" v="true" m="false" rootElement="_14891596836231" id="_1489163291908">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="ExternalId" ft="false" id="_1489163307516210">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="50"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_1489163308145211">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Boolean" v="true" name="Enabled" dv="true" ft="false" id="_1489163308652212">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="AppCode" dv="java.util.UUID.randomUUID().toString()" ft="false" id="_1489163309462213">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="36"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_1489163291911208">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_Application.findAll">
+            <jpa:query>Select e from VAuth_Application e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Application.findByExternalId">
+            <jpa:query>Select v from VAuth_Application v where v.ExternalId=:ExternalId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Application.findByCreated">
+            <jpa:query>Select v from VAuth_Application v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_Application.findByEnabled">
+            <jpa:query>Select v from VAuth_Application v where v.Enabled=:Enabled</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Application.findByAppCode">
+            <jpa:query>Select v from VAuth_Application v where v.AppCode=:AppCode</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_Application.findValidByExternalId">
+            <jpa:query>Select v from VAuth_Application v where v.ExternalId=:ExternalId and v.Enabled=true</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_1489165963649223" xre="false" compositePrimaryKeyClass="VAuth_ActCodePK" abs="false" class="VAuth_ActCode" v="true" m="false" rootElement="_14891596836231" id="_1489165963647">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@XmlRootElement"/>
+        <jpa:ath>vt</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="ActCode" dv="java.util.UUID.randomUUID().toString()" ft="false" id="_1489165990098225">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="36"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="Long" v="true" name="Created" dv="System.currentTimeMillis()" ft="false" id="_1489166012689226">
+                <jpa:bv/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </jpa:basic>
+            <jpa:many-to-one optional="false" primaryKey="false" connected-entity-id="_1489161889713" v="true" name="VAuth_User" id="_1489669089737158">
+                <jpa:bv/>
+                <jpa:cascade>
+                    <jpa:cascade-all/>
+                </jpa:cascade>
+                <jpa:join-column name="VAUTH_USER_ID" unique="true" nullable="false" insertable="true" updatable="true">
+                    <jpa:fk constraint-mode="CONSTRAINT"/>
+                </jpa:join-column>
+            </jpa:many-to-one>
+            <jpa:id attribute-type="Long" v="true" name="id" ft="false" id="_1489165963649223">
+                <jpa:bv/>
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="VAuth_ActCode.findAll">
+            <jpa:query>Select e from VAuth_ActCode e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="VAuth_ActCode.findByActCode">
+            <jpa:query>Select v from VAuth_ActCode v where v.ActCode=:ActCode</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="VAuth_ActCode.findByCreated">
+            <jpa:query>Select v from VAuth_ActCode v where v.Created=:Created</jpa:query>
+        </jpa:nq>
+        <jpa:el/>
+    </jpa:entity>
+    <jpa:snp loc="IMPORT" e="true">import javax.xml.bind.annotation.XmlRootElement;</jpa:snp>
+    <jpa:snp loc="BEFORE_PACKAGE" e="true">/*
+ * Copyright (C) 2017 vt
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */</jpa:snp>
+    <jpa:inf e="true" n="java.io.Serializable"/>
+    <jpa:c>
+        <ct>java.util.List</ct>
+        <ct>java.util.Set</ct>
+        <ct>java.util.Map</ct>
+        <ct>java.util.Collection</ct>
+    </jpa:c>
+    <jpa:wsl>
+        <jpa:ws n="Main" id="_14891596836242">
+            <i ref="_1489162511050" x="1193" y="365"/>
+            <i ref="_1489162784812" x="989" y="365"/>
+            <i ref="_1489165963647" x="18" y="365"/>
+            <i ref="_1489162975217" x="765" y="365"/>
+            <i ref="_1489159730643" x="257" y="365"/>
+            <i ref="_1489160591378" x="539" y="365"/>
+            <i ref="_1489163291908" x="399" y="666"/>
+            <i ref="_1489163090566" x="906" y="666"/>
+            <i ref="_1489161889713" x="574" y="9"/>
+        </jpa:ws>
+    </jpa:wsl>
+</jpa:entity-mappings>

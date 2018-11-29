@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="VAUTH" transaction-type="JTA">
+    <jta-data-source>java:app/localhost</jta-data-source>
+    <class>sk.vilten.vauth.web.entity.VauthActcode</class>
+    <class>sk.vilten.vauth.web.entity.VauthApplication</class>
+    <class>sk.vilten.vauth.web.entity.VauthUser</class>
+    <class>sk.vilten.vauth.web.entity.VauthAuthcode</class>
+    <class>sk.vilten.vauth.web.entity.VauthToken</class>
+    <class>sk.vilten.vauth.web.entity.VauthProperty</class>
+    <class>sk.vilten.vauth.web.entity.VauthUservalue</class>
+    <class>sk.vilten.vauth.web.entity.VauthRole</class>
+    <class>sk.vilten.vauth.web.entity.VauthGroup</class>
+    <class>sk.vilten.vauth.web.entity.VauthResetcode</class>
+    <class>sk.vilten.vauth.web.entity.VauthActivatecode</class>
+    <class>sk.vilten.vauth.web.entity.VauthNfcCode</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+  </persistence-unit>
+</persistence>

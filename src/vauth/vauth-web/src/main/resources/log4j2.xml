@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 Vilten,s.r.o. - All Rights Reserved
+
+Unauthorized copying of this file, via any medium is strictly prohibited
+Proprietary and confidential
+Written by Viliam Tencer <vilten@vilten.sk>, 15. 10. 2017
+-->
+
+
+<Configuration>
+    <Properties>
+        <Property name="log-path">log</Property>
+        <Property name="app-name">vauth</Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="root-log" fileName="${log-path}/${app-name}.log" filePattern="${log-path}/${app-name}-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss.SSS} [%-5level] [%C] [%t] [%logger{36}] %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+        <RollingFile name="audit-log" fileName="${log-path}/${app-name}-audit.log" filePattern="${log-path}/${app-name}-audit-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss.SSS} [%-5level] [%C] [%t] [%logger{36}] %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="root-logger" level="trace">
+          <AppenderRef ref="root-log"/>
+        </Logger>
+        <Logger name="audit-logger" level="trace">
+          <AppenderRef ref="audit-log"/>
+        </Logger>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,11 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Copyright (C) ${date?date?string("yyyy")} Vilten,s.r.o. - All Rights Reserved
+${licensePrefix?replace(" +$", "", "r")}
+${licensePrefix}Unauthorized copying of this file, via any medium is strictly prohibited
+${licensePrefix}Proprietary and confidential
+${licensePrefix}Written by Viliam Tencer <vilten@vilten.sk>, ${date?date?string("dd. MM. yyyy")}
+<#if licenseLast??>
+${licenseLast}
+</#if>
